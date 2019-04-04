@@ -1,0 +1,19 @@
+{
+    "name": "chromafox/database-sqlite",
+    "description": "The SQLite driver for chromafox/database",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Socks the Fox",
+            "email": "jade@socksthefox.net"
+        }
+    ],
+	"require": {
+		"chromafox/database": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"CF\\": "src/"
+		}
+	}
+}
