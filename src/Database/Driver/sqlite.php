@@ -21,7 +21,7 @@ class sqlite extends \CF\Database\Driver
 		if(is_array($type))
 			$def = $types[$type[0]];
 		else
-			$def = $type;
+			$def = $types[$type];
 		
 		if(is_subclass_of($def, "\CF\Database\Model", TRUE))
 		{
@@ -37,8 +37,6 @@ class sqlite extends \CF\Database\Driver
 			return $this->getDatabaseTypeFor($type);
 		}
 		
-		$def = "";
-		
 		if(is_array($type))
 		{
 			if(isset($type['primary']))
@@ -49,10 +47,6 @@ class sqlite extends \CF\Database\Driver
 				$def .= $types['null'][$type['null']];
 			if(isset($type['default']))
 				$def .= $types['default']."'{$type['default']}'";
-		}
-		else
-		{
-			$def = $types[$type];
 		}
 		
 		return $def;
