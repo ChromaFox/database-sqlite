@@ -141,7 +141,7 @@ class sqlite extends \CF\Database\Driver
 	
 	function formatCount($query)
 	{
-		return $query->formatSelect($query);
+		return $this->formatSelect($query);
 	}
 	
 	function formatCreateTable($query)
@@ -188,7 +188,7 @@ class sqlite extends \CF\Database\Driver
 			if(in_array($col, ["AND", "OR"]))
 			{
 				// Sub-where
-				$subWhere = Query::formatWhere($value, $col);
+				$subWhere = self::formatWhere($value, $col);
 				
 				$clauses[] = "({$subWhere['sql']})";
 				$values = array_merge($values, $subWhere['values']);
